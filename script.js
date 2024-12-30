@@ -1,7 +1,7 @@
 const weatherForm=document.querySelector(".weatherForm");
 const cityInput=document.querySelector(".cityInput");
 const container=document.querySelector(".container");
-const apiKey="27121610a60026c052d617ab3bb7b80d";
+const apiKey="82e250da4efa0e5bc800985568244447";
 
 weatherForm.addEventListener("submit",async event =>{
      event.preventDefault();
@@ -26,11 +26,11 @@ weatherForm.addEventListener("submit",async event =>{
 });
 
 async function getWeatherData(city) {
-    const apiUrl=`https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}`
+    const apiUrl=`https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}`;
     const response= await fetch(apiUrl);
 
     if(!response.ok){
-        throw new error("Could not fetch weather data");
+        throw new Error("Could not fetch weather data");
     }
 
     return await response.json();
@@ -40,7 +40,7 @@ function displayWeatherInfo(data){
        const {name:city,main:{temp,humidity},weather:[{description,id}]}=data;
 
        container.textContent="";
-       container.Style.display="flex";
+       container.style.display="flex";
 
        const cityDisplay = document.createElement("h1");
        const tempDisplay = document.createElement("p");
