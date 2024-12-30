@@ -41,29 +41,29 @@ h1{
   margin: 0;
 }
 
-#tempDisplay{
+.tempDisplay{
     font-family: sans-serif;
     font-size: 1.3rem;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.75);
 }
-#humDisplay{
+.humDisplay{
     font-family: sans-serif;
     font-size: 1rem;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.75);
 }
-#descDisplay{
+.descDisplay{
     font-family: sans-serif;
     font-style: italic;
     font-size: 1.3rem;
     color: rgba(0, 0, 0, 0.75);
 }
-#weatherEmoji{
+.weatherEmoji{
     font-size: 4rem;
     border: none;
 }
-#errorDisplay{
+.errorDisplay{
     font-family: sans-serif;
     font-size: 1rem;
     font-weight: bold;
