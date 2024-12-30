@@ -1,8 +1,7 @@
 const weatherForm=document.querySelector(".weatherForm");
 const cityInput=document.querySelector(".cityInput");
 const container=document.querySelector(".container");
-const apiKey="82e250da4efa0e5bc800985568244447";
-
+const apiKey="27121610a60026c052d617ab3bb7b80d";
 weatherForm.addEventListener("submit",async event =>{
      event.preventDefault();
      const city=cityInput.value;
@@ -26,7 +25,7 @@ weatherForm.addEventListener("submit",async event =>{
 });
 
 async function getWeatherData(city) {
-    const apiUrl=`https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}`;
+    const apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     const response= await fetch(apiUrl);
 
     if(!response.ok){
@@ -49,7 +48,7 @@ function displayWeatherInfo(data){
        const weatherEmoji = document.createElement("p");
 
     cityDisplay.textContent=city;
-    tempDisplay.textContent=`${(temp-273.15).toFixed(1)}°F`;
+    tempDisplay.textContent=`${(temp-273.15).toFixed(1)}°C`;
     humDisplay.textContent=`Humidity:${humidity}%`;
     descDisplay.textContent=description;
     weatherEmoji.textContent=getWeatherEmoji(id);
@@ -70,19 +69,19 @@ function displayWeatherInfo(data){
 function getWeatherEmoji(weatherId){
         switch(true){
             case (weatherId >= 200 && weatherId < 300):
-            return "⛈";
+            return "⛈️";
         case (weatherId >= 300 && weatherId < 400):
-            return "🌧";
+            return "🌧️";
         case (weatherId >= 500 && weatherId < 600):
-            return "🌧";
+            return "🌧️";
         case (weatherId >= 600 && weatherId < 700):
-            return "❄";
+            return "❄️";
         case (weatherId >= 700 && weatherId < 800):
-            return "🌫";
+            return "🌫️";
         case (weatherId === 800):
-            return "☀";
+            return "☀️";
         case (weatherId >= 801 && weatherId < 810):
-            return "☁";
+            return "☁️";
         default:
             return "❓";
         }
